@@ -4,8 +4,8 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const { createClient } = require('@supabase/supabase-js');
-const tempatKemahRoutes = require('./route/tempatkemah');
-const authRoutes = require('./route/auth'); // Mengimpor auth.js
+const tempatKemahRoutes = require('../route/tempatkemah');
+const authRoutes = require('../route/auth'); // Mengimpor auth.js
 
 const supabaseUrl = 'https://llornbrdkahkybuyftfq.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxsb3JuYnJka2Foa3lidXlmdGZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE5MjEyNTUsImV4cCI6MjA0NzQ5NzI1NX0.TkHzC2EX-HscUpnjMxEBYLQahaMtUFza3wONZ2WPWrM'; // Ganti dengan kunci yang benar
@@ -32,9 +32,10 @@ app.use(session({
 app.use('/tempat_kemah', tempatKemahRoutes);
 app.use('/auth', authRoutes); // Pastikan rute untuk login diauth.js aktif
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
-app.listen(3000, () => console.log("Server ready on port 3000."));
+// app.get("/", (req, res) => res.send("Express on Vercel"));
+// app.listen(3000, () => console.log("Server ready on port 3000."));
 
 app.listen(port, () => {
   console.log(`Server berjalan di http://localhost:${port}`);
 });
+
