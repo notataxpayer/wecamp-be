@@ -32,9 +32,8 @@ app.use(session({
 app.use('/tempat_kemah', tempatKemahRoutes);
 app.use('/auth', authRoutes); // Pastikan rute untuk login diauth.js aktif
 
-app.get('/', (req, res) => {
-  res.send('Backend server is running!');
-});
+app.get("/", (req, res) => res.send("Express on Vercel"));
+app.listen(3000, () => console.log("Server ready on port 3000."));
 
 app.listen(port, () => {
   console.log(`Server berjalan di http://localhost:${port}`);
