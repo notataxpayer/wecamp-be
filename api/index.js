@@ -29,8 +29,14 @@ app.use(session({
 }));
 
 // Menambahkan routes
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
+
 app.use('/tempat_kemah', tempatKemahRoutes);
-app.use('/auth', authRoutes); // Pastikan rute untuk login diauth.js aktif
+app.use('/auth', authRoutes); 
 
 // app.get("/", (req, res) => res.send("Express on Vercel"));
 // app.listen(3000, () => console.log("Server ready on port 3000."));
